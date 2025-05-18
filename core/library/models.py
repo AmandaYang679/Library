@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Library(models.Model):
@@ -13,6 +14,9 @@ class Library(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("library:book_list_by_library", kwargs={"library_slug": self.slug})
     
     
 class Book(models.Model):
@@ -31,3 +35,7 @@ class Book(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("library:book_detail", kwargs={"book_slug": self.slug})
+    

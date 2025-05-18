@@ -15,3 +15,8 @@ def book_list(request, library_slug=None):
                   {'library': library,
                    'libraries': libraries,
                    'books': books})
+    
+def book_detail(request, book_slug):
+    book = get_object_or_404(Book, slug=book_slug, available=True)
+    return render(request, 'library/detail.html', {'book': book})
+    
