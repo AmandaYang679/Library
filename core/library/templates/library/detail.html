@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+
+{% block title %} {{ book.name }} {% endblock title %}
+
+{% block content %}
+
+    <img src="book.image.url" alt="{{ book.name }}"> <br>
+    <h1>{{ book.name }}</h1>
+    <p>Библиотека:
+        <a href="{{ book.library.get_absolute_url }}">{{ book.library.name}} </a>
+    </p>
+    <h3>Описание</h3>
+    <p>{{ book.description }}</p>
+
+{% endblock content %}
