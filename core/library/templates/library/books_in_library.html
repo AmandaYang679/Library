@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block title %}
+    {{ library.name }}
+{% endblock title %}
+
+{% block content %}
+    {% for book in books %}
+        <h2>
+            <a href="{% url 'library:book_detail' slug=book.slug %}">{{ book.name }} | {{ book.author }}</a>
+        </h2>
+    {% endfor %}
+{% endblock content %}

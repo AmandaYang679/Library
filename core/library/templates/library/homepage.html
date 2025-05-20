@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block title %}
+    BookPoint
+{% endblock title %}
+
+
+{% block content %}
+    {% for book in r_books %}
+        <a href="{% url 'library:book_detail' slug=book.slug %}">{{ book.name }} | {{ book.author }}</a>
+    {% endfor %}
+{% endblock content %}
