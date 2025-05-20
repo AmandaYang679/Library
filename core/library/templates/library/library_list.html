@@ -6,11 +6,13 @@
 
 
 {% block content %}
-    {% for library in libraries %}
-        <li>
-            <a href="{% url 'library:books_in_library' slug=library.slug %}">
-                {{ library.name }}
-            </a>
-        </li>
-    {% endfor %}
+    <div class="library-list">
+        {% for library in libraries %}
+            <div class="library-item">
+                <a href="{% url 'library:books_in_library' slug=library.slug %}">
+                    {{ library.name }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}

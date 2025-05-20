@@ -7,6 +7,12 @@
 
 {% block content %}
     {% for book in r_books %}
-        <a href="{% url 'library:book_detail' slug=book.slug %}">{{ book.name }} | {{ book.author }}</a>
+        <div class="book-card">
+            <a href="{% url 'library:book_detail' slug=book.slug %}">
+                <img src="{{ book.image.url }}" alt="{{ book.name }}">
+                <h2>{{ book.name }}</h2>
+                <p>{{ book.author }}</p>
+            </a>
+        </div>
     {% endfor %}
 {% endblock content %}
